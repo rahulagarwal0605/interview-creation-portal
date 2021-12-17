@@ -1,0 +1,26 @@
+{
+  "name": "interview-creation-portal",
+  "version": "1.0.0",
+  "description": "Using this app admins can create interviews by selecting participants, interview start time and end time.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulagarwal0605/interview-creation-portal.git"
+  },
+  "author": "Rahul Agarwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahulagarwal0605/interview-creation-portal/issues"
+  },
+  "homepage": "https://github.com/rahulagarwal0605/interview-creation-portal#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
