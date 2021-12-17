@@ -189,7 +189,7 @@
       var getAdminList = new XMLHttpRequest();
       var getParticipantList = new XMLHttpRequest();
       var participantCounter = 0;
-      var baseUrl = 'http://localhost:3000/api';
+      var baseUrl = window.location.origin + "/api";
 
       getAdminList.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
