@@ -18,7 +18,7 @@
     <div class="container-fluid p-3">
       <div class="row">
         <div class="col-sm-6">
-          <p class="h1 mb-3">Interview Creation Portal</p>
+          <p class="h2 mb-3 text-center">Interview Creation Portal</p>
           <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
             <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
@@ -29,18 +29,15 @@
             <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
               <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
             </symbol>
-          </svg>            
-          <div class="alert alert-warning d-flex align-items-center alert-dismissible fade hidden" role="alert" id="alert2">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-            <div>
-              No of participants are less than 2.
-            </div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </svg>     
+          <div class="alert alert-primary d-flex align-items-center fade hidden" role="alert" id="alertBox">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+            <div id="alertText"></div>
           </div>
           <form class="needs-validation" novalidate>
             <div class="input-group mb-3">
               <label class="input-group-text" for="inputGroupSelect01">Select Admin</label>
-              <select class="form-select" id="adminList" required>
+              <select class="form-select" id="adminList" onchange="getUpcommingInterviewList(this.value)" required>
                 <option selected disabled value="">Choose...</option>
               </select>
             </div>
@@ -56,7 +53,7 @@
               </div>
             </div>
             <div class="mb-3">
-              <button type="button" class="btn btn-primary" onclick="customValidation()">Schedule</button>
+              <button type="button" class="btn btn-primary" value="0" onclick="customValidation(this.value)" id="scheduleBtn">Schedule</button>
             </div>
           </form>
         </div>
@@ -86,6 +83,7 @@
           <table class="table table-bordered">
             <thead>
               <tr>
+                <th scope="col">Interview</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Date</th>
@@ -94,73 +92,21 @@
                 <th scope="col">Edit</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Rahul Agarwal</th>
-                <td>rahulagarwal0605@gmail.com</td>
-                <td>17-12-2021</td>
-                <td>13:00</td>
-                <td>14:00</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
-              </tr>
-              <tr>
-                <th scope="row">Rahul Agarwal</th>
-                <td>rahulagarwal0605@gmail.com</td>
-                <td>17-12-2021</td>
-                <td>13:00</td>
-                <td>14:00</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
-              </tr>
-              <tr>
-                <th scope="row">Rahul Agarwal</th>
-                <td>rahulagarwal0605@gmail.com</td>
-                <td>17-12-2021</td>
-                <td>13:00</td>
-                <td>14:00</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
-              </tr>
-              <tr>
-                <th scope="row">Rahul Agarwal</th>
-                <td>rahulagarwal0605@gmail.com</td>
-                <td>17-12-2021</td>
-                <td>13:00</td>
-                <td>14:00</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
-              </tr>
-              <tr>
-                <th scope="row">Rahul Agarwal</th>
-                <td>rahulagarwal0605@gmail.com</td>
-                <td>17-12-2021</td>
-                <td>13:00</td>
-                <td>14:00</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
-              </tr>
-              <tr>
-                <th scope="row">Rahul Agarwal</th>
-                <td>rahulagarwal0605@gmail.com</td>
-                <td>17-12-2021</td>
-                <td>13:00</td>
-                <td>14:00</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
-              </tr>
-              <tr>
-                <th scope="row">Rahul Agarwal</th>
-                <td>rahulagarwal0605@gmail.com</td>
-                <td>17-12-2021</td>
-                <td>13:00</td>
-                <td>14:00</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
-              </tr>
-              <tr>
-                <th scope="row">Rahul Agarwal</th>
-                <td>rahulagarwal0605@gmail.com</td>
-                <td>17-12-2021</td>
-                <td>13:00</td>
-                <td>14:00</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
-              </tr>
-            </tbody>
+            <tbody id="uiTable"></tbody>
           </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="conflictsModal" tabindex="-1" aria-labelledby="conflictsModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="conflictsModalLabel">Interview Conflict Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="conflictsModalText"></div>
         </div>
       </div>
     </div>
@@ -190,6 +136,7 @@
       var getParticipantList = new XMLHttpRequest();
       var participantCounter = 0;
       var baseUrl = window.location.origin + "/api";
+      var adminId = document.getElementById("adminList").value;
 
       getAdminList.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
@@ -239,7 +186,90 @@
         }
       }
 
+      function createUIList(uiList) {
+        var list = {};
+        for(let i=0; i<uiList.length; i++) {
+          if(!(uiList[i].interviewId in list)) {
+            list[uiList[i].interviewId] = [];
+          }
+          list[uiList[i].interviewId].push(uiList[i]);
+        }
+        return list;
+      }
+
+      function getUpcommingInterviewList(adminId) {
+        document.getElementById("uiTable").innerHTML="";
+        var getUIList = new XMLHttpRequest();
+        getUIList.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var uiList = JSON.parse(getUIList.responseText).data;
+            uiList = createUIList(uiList);
+            var cnt = 0;
+            for (var m in uiList){
+              cnt++;
+              for (var i=0; i<uiList[m].length; i++){
+                if(i==0) {
+                  $('#uiTable').append(`<tr>
+                    <th scope="row" rowspan="${uiList[m].length}" class="align-middle">${cnt}</th>
+                    <td>${uiList[m][i].name}</td>
+                    <td>${uiList[m][i].email}</td>
+                    <td rowspan="${uiList[m].length}" class="align-middle">${uiList[m][i].date}</td>
+                    <td rowspan="${uiList[m].length}" class="align-middle">${uiList[m][i].startTime}</td>
+                    <td rowspan="${uiList[m].length}" class="align-middle">${uiList[m][i].endTime}</td>
+                    <td rowspan="${uiList[m].length}" class="align-middle"><button type="button" class="btn btn-primary" value="${uiList[m][i].interviewId}" onClick="setInterviewDetails(this.value)">Edit</button></td>
+                  </tr>`);
+                }
+                else {
+                  $('#uiTable').append(`<tr>
+                    <td>${uiList[m][i].name}</td>
+                    <td>${uiList[m][i].email}</td>
+                  </tr>`);
+                }
+              }
+            }
+          }
+        };
+        getUIList.open("GET", baseUrl + "/admin/getUpcommingInterviewList?id=" + adminId, true);
+        getUIList.send();
+      }
+
+      function setInterviewDetails(interviewId) {
+        var getInterview = new XMLHttpRequest();
+        getInterview.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var participantsList = JSON.parse(getInterview.responseText).data;
+            datepicker.value(participantsList[0].date);
+            starttimepicker.value(participantsList[0].startTime);
+            endtimepicker.value(participantsList[0].endTime);
+            for(let i=0; i<participantsList.length; i++) {
+              $("#participant"+participantsList[i].participantId).prop("checked", true);
+            }
+            participantCounter = participantsList.length;
+            document.getElementById("counter").innerText = participantCounter;
+            document.getElementById("scheduleBtn").value = interviewId;
+            document.getElementById("scheduleBtn").innerHTML = "Update";
+          }
+        };
+        getInterview.open("GET", baseUrl + "/admin/getInterviewDetails?id=" + interviewId, true);
+        getInterview.send();
+      }
+
+      function deleteInterview(interviewId) {
+        var deleteInterview = new XMLHttpRequest();
+        deleteInterview.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("scheduleBtn").value = 0;
+            createInterview();
+          }
+        };
+        deleteInterview.open("GET", baseUrl + "/admin/deleteInterview?id=" + interviewId, true);
+        deleteInterview.send();
+      }
+
       function createInterview() {
+        $('#alertBox').removeClass('show');
+        $('#alertBox').addClass('hidden');
+
         var xhr = new XMLHttpRequest();
         xhr.open("POST", baseUrl + "/admin/createInterview");
 
@@ -249,10 +279,23 @@
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4) {
             const response = JSON.parse(xhr.responseText);
-            if(response["status"]=="error" && response["data"]["errorcode"]==2) {
-              $('#alert2').removeClass('hidden');
-              $('#alert2').addClass('show');
+            let message = response["message"];
+            if(response.status == "success") {
+              document.getElementById("scheduleBtn").innerHTML = "Schedule";
+              getUpcommingInterviewList(adminId);
             }
+            if(response.status =="error" && response.data.errorcode == 1) {
+              message = message + ` <a href="#" class="alert-link" data-bs-toggle="modal" data-bs-target="#conflictsModal">View Details</a>.`;
+              let conflicts = response.data.conflicts;
+              let modalText = document.getElementById("conflictsModalText");
+              modalText.innerHTML = "";
+              for(let i=0; i<conflicts.length; i++) {
+                modalText.innerHTML += `${i+1}. ${conflicts[i].participantName} (${conflicts[i].participantEmail}) is not available during the scheduled time (${startTime} - ${endTime}) because of another scheduled interview with ${conflicts[i].adminName} (${conflicts[i].adminEmail}) at (${conflicts[i].startTime} - ${conflicts[i].endTime})<br><br>`;
+              }
+            }
+            $('#alertText').html(message);
+            $('#alertBox').removeClass('hidden');
+            $('#alertBox').addClass('show');
           }};
         
         var adminId = document.getElementById("adminList").value;
@@ -267,17 +310,17 @@
 
         var data = {
           adminId: adminId,
+          participants: participants,
           date: date,
           startTime: startTime,
-          endTime: endTime,
-          participants: participants
+          endTime: endTime
         };
 
         xhr.send(JSON.stringify(data));
 
       }
 
-      function customValidation() {
+      function customValidation(btnValue) {
         var forms = document.querySelectorAll('.needs-validation');
         Array.prototype.slice.call(forms).forEach(function (form) {
           if (!form.checkValidity()) {
@@ -285,7 +328,12 @@
             event.stopPropagation();
           }
           else {
-            createInterview();
+            if(btnValue!=0) {
+              deleteInterview(document.getElementById("scheduleBtn").value);
+            }
+            else {
+              createInterview();
+            }
           }
           form.classList.add('was-validated');
         })

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/rahulagarwal0605/interview-creation-portal#readme",
   "dependencies": {
     "express": "^4.17.2",
+    "moment": "^2.29.1",
     "mysql2": "^2.3.3"
   },
   "devDependencies": {
