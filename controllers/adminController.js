@@ -1,7 +1,7 @@
 const db = require('../config/db');
 var moment = require('moment');
 moment().format(); 
-const API_KEY = proces.env.MAILGUN_API_KEY;
+const API_KEY = process.env.MAILGUN_API_KEY;
 const DOMAIN = process.env.MAILGUN_DOMAIN;
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
