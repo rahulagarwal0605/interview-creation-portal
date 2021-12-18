@@ -154,7 +154,7 @@
             const participantList = JSON.parse(getParticipantList.responseText).data;
             for(let i=0; i<participantList.length; i++) {
               $('#participantList').append(`<label class="list-group-item participants">
-                <input class="form-check-input me-1" type="checkbox" id="participant${i+1}" value="${i+1}" onclick="updateCounter(this)">${participantList[i]["name"]} (${participantList[i]["email"]})</label>`);
+                <input class="form-check-input me-1 participantChkbox" type="checkbox" id="participant${i+1}" value="${i+1}" onclick="updateCounter(this)">${participantList[i]["name"]} (${participantList[i]["email"]})</label>`);
             }
           }
       };
@@ -198,6 +198,9 @@
       }
 
       function getUpcommingInterviewList(adminId) {
+        $(".participantChkbox").prop("checked", false);
+        participantCounter = 0;
+        document.getElementById("counter").innerText = participantCounter;
         document.getElementById("uiTable").innerHTML="";
         var getUIList = new XMLHttpRequest();
         getUIList.onreadystatechange = function() {
@@ -234,6 +237,9 @@
       }
 
       function setInterviewDetails(interviewId) {
+        $(".participantChkbox").prop("checked", false);
+        participantCounter = 0;
+        document.getElementById("counter").innerText = participantCounter;
         var getInterview = new XMLHttpRequest();
         getInterview.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
